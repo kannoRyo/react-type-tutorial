@@ -1,6 +1,12 @@
 import React from 'react'
 
-const Info = (props: any)=>{
+type InfoProps = {
+    winner: "X" | "O" | null
+    xIsNext: boolean
+    moves: JSX.Element[]
+}
+
+const Info = (props :InfoProps)=>{
     let status;
     if (props.winner) {
       status = "Winner: " + props.winner;

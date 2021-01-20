@@ -1,7 +1,13 @@
 import React from 'react'
 import './index.css'
 
-const  Square = (props: any) => {
+type ISquare = "X" | "O" | null;
+type SquareProps = {
+    value: ISquare;
+    onClick: () => void;
+}
+
+const  Square = (props: SquareProps) => {
     return (
       <button className="square" onClick={props.onClick}>
         {props.value}

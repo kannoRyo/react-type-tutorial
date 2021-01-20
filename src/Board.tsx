@@ -1,15 +1,16 @@
 import React from 'react'
 import Square from './Square'
 
-type BoardTypes = {
-    squares: any
-    onClick: any
+type ISquare = "X" | "O" | null;
+type BoardProps = {
+    squares: ISquare[];
+    onClick: (i: number) => void;
 }
 
 const rows:[0,1,2] = [0,1,2]
 const cols:[0,1,2] = [0,1,2]
 
-const Board = (props: BoardTypes) =>{
+const Board = (props: BoardProps) =>{
     return(
         <>
             {

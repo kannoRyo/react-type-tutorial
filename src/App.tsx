@@ -3,7 +3,10 @@ import './index.css'
 import Board from './Board'
 import Info from './Info'
 
-function calculateWinner(squares: any) {
+type squareType = (null | "O" | "X")[]
+type ISquare = "X" | "O" | null;
+
+function calculateWinner(squares: squareType) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -24,14 +27,14 @@ function calculateWinner(squares: any) {
 }
 
 const App = () =>{
+  console.log( Array(9).fill(null))
   const [history, setHistory] = useState([
     {
-      squares: Array(9).fill(null)
+      squares: Array<ISquare>(9).fill(null)
     }
   ])
-  const [stepNumber, setStepNumber] = useState(0)
-  const [xIsNext, setXIsNext] = useState<Boolean>(false)
-  const stone = xIsNext ? 'X' : 'O'
+  const [stepNumber, setStepNumber] = useState<number>(0)
+  const [xIsNext, setXIsNext] = useState<boolean>(false)
 
   const handleClick　= (i: any):any => {
     const Copyhistory = history.slice(0,stepNumber + 1);
